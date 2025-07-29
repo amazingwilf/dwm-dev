@@ -47,9 +47,8 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ .class = "Nwg-look", .isfloating = 1 },
+	{ .class = "firefox", .tags = 1 << 1 },
 };
 
 /* layout(s) */
@@ -92,9 +91,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2]			= "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 	= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] 	= { "dmenu_run", "-p", "Run: ", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  	= { "st", NULL };
+static const char *firefoxcmd[]	= { "firefox", NULL };
 static const char *bldown[]		= { "brightnessctl", "s", "5%-", NULL };
 static const char *blup[]		= { "brightnessctl", "s", "+5%", NULL };
 
@@ -103,6 +102,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } },
 	{ 0,                            XK_F5,     spawn,          {.v = bldown } },
 	{ 0,                            XK_F6,     spawn,          {.v = blup } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
