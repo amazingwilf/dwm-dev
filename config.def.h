@@ -1,8 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const char *toggle_float_pos	= "50% 50% 80% 80%"; // default floating position when triggering togglefloating
+static int floatposgrid_x           = 5;        /* float grid columns */
+static int floatposgrid_y           = 5;        /* float grid rows */
 static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 15;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 15;       /* horiz outer gap between windows and screen edge */
