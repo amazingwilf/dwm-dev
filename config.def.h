@@ -35,6 +35,9 @@ static char tagsoccbgcolor[]		= "#222222";
 static char tagsselfgcolor[]		= "#eeeeee";
 static char tagsselbgcolor[]		= "#005577";
 
+static char ltsymbolfgcolor[]		= "#eeeeee";
+static char ltsymbolbgcolor[]		= "#222222";
+
 static char termcol0[]				= "#000000"; /* black   */
 static char termcol1[]				= "#ff0000"; /* red     */
 static char termcol2[]				= "#33ff00"; /* green   */
@@ -76,6 +79,7 @@ static char *colors[][3] 	= {
        [SchemeTagsEmpty]	= { tagsemptyfgcolor,	tagsemptybgcolor,	NULL },
        [SchemeTagsOcc]		= { tagsoccfgcolor,		tagsoccbgcolor,		NULL },
        [SchemeTagsSel]		= { tagsselfgcolor,		tagsselbgcolor,		NULL },
+       [SchemeLtSymbol]		= { ltsymbolfgcolor,	ltsymbolbgcolor,	NULL },
 };
 
 static const unsigned int baralpha		= 0xd0;
@@ -87,6 +91,7 @@ static const unsigned int alphas[][3]	= {
 	[SchemeTagsEmpty]		= { OPAQUE, baralpha, borderalpha },
 	[SchemeTagsOcc]			= { OPAQUE, baralpha, borderalpha },
 	[SchemeTagsSel]			= { OPAQUE, baralpha, borderalpha },
+	[SchemeLtSymbol]		= { OPAQUE, baralpha, borderalpha },
 };
 
 static const char *const autostart[] = {
