@@ -112,6 +112,7 @@ static const Rule rules[] = {
 	 */
 	{ .class = "Nwg-look", .isfloating = 1 },
 	{ .class = "firefox", .tags = 1 << 1 },
+	{ .title = "spterm", .scratchkey = 't', .isfloating = 1, .floatpos = "50% 50% 80% 80%" },
 };
 
 /* layout(s) */
@@ -165,6 +166,7 @@ static const char *volup[]		= { "pulsemixer", "--max-volume", "100", "--change-v
 static const char *bldown[]		= { "brightnessctl", "s", "5%-", NULL };
 static const char *blup[]		= { "brightnessctl", "s", "+5%", NULL };
 
+static const char *sptermcmd[]	= { "t", "st", "-t", "spterm", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -193,6 +195,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = sptermcmd } },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_x,      xrdb,           {.v = NULL } },
